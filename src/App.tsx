@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import FirstForm from "./components/FirstForm";
+import "./App.scss";
+import Colors from "./components/Colors";
+import SecondForm from "./components/SecondForm";
 
 function App() {
+  const [numOfColors, setNumOfColors] = useState(0);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Color App</h1>
       </header>
+      <FirstForm onSubmit={setNumOfColors} />
+      <SecondForm />
+      <Colors numOfColors={numOfColors} />
     </div>
   );
 }
